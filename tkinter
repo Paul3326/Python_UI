@@ -1,0 +1,107 @@
+import tkinter  as tk
+from tkinter    import ttk
+
+def get_screen_size(window):
+    return window.winfo_screenwidth(),window.winfo_screenheight()
+
+def get_window_size(window):
+    return window.winfo_reqwidth(),window.winfo_reqheight()
+
+def center_window(root, width, height):
+    screenwidth = root.winfo_screenwidth()
+    screenheight = root.winfo_screenheight()
+    size = '%dx%d+%d+%d' % (width, height, (screenwidth - width)/2, (screenheight - height)/2)
+    print(size)
+    root.geometry(size)
+
+
+
+root = tk.Tk()
+root.title('测试窗口')
+center_window(root, 300, 240)
+root.maxsize(600, 400)
+root.minsize(300, 240)
+ttk.Label(root, relief = tk.FLAT, text = '屏幕大小(%sx%s)\n窗口大小(%sx%s)' % (get_screen_size(root) + get_window_size(root))).pack(expand = tk.YES)
+tk.mainloop()
+
+
+
+
+
+
+
+
+
+
+
+
+
+#!/usr/bin/python
+#-*-coding:UTF-8 -*-
+
+#导入tk包文件
+#from tkinter import *
+#import tkinter.messagebox 
+
+#实例化对象
+#login = Tk()
+
+#添加标题
+#login.title('欢迎登陆xxx农业管理系统')
+
+#定义帐户的类
+#class Account(object):
+#    def __init__(self,name,passwd,name_cache,passwd_cache,state):
+#        self.name = name
+#        self.passwd = passwd
+#        self.name_cache = name_cache
+#        self.passwd_cache = passwd_cache
+
+#实例化管理员
+#admin = Account("admin","admin","","",0) 
+
+
+
+#-----------------布局Label----------------
+#Label(login,text='帐号:').grid(row=0,column=0)
+#Label(login,text='密码:').grid(row=1,column=0)
+
+#login_name=StringVar()
+#login_passwd=StringVar()
+
+#str_name=Entry(login,textvariable=login_name)
+#str_passwd=Entry(login,textvariable=login_passwd,show='*')
+
+#str_name.grid(row=0,column=1,padx=5,pady=5)
+#str_passwd.grid(row=1,column=1,padx=5,pady=5)
+
+#def check():
+    #赋初始值为0，没有通过检测
+#    admin.sate = 0
+
+#    print("帐号: %s" % login_name.get())
+#    print("密码: %s" % login_passwd.get())
+#    print("-----------------------------")
+
+#    if(login_name.get() == admin.name) and (login_passwd.get() == admin.passwd):
+#        admin.state = 1
+#    elif(len(login_passwd.get()) < 5):
+#        admin.state = 0
+#        tkinter.messagebox.showinfo(title="提示", message= "密码长度必须超过5位！")
+#    else:
+#        admin.state = 0
+#        tkinter.messagebox.showinfo(title="提示", message= "帐号和密码不匹配！")
+#        
+#    if(admin.state == 1):
+#        print("登陆成功")
+#    else:
+#        print("登陆失败")
+
+
+#Button(login,text='确定',width=10,command=check).grid(row=3,column=0,sticky=W,padx=5,pady=5)
+#Button(login,text='退出',width=10,command=login.quit).grid(row=3,column=1,sticky=E,padx=5,pady=5)
+
+
+
+#login.mainloop()
+
